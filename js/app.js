@@ -77,9 +77,7 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-// Agora, escreva sua própria classe de jogador
-// Esta classe exige um método update(), 
-// um render() e um handleInput().
+// Classe do jogador
 let Player = function (x, y, velocidade) {
     this.x = x;
     this.y = y;
@@ -87,10 +85,6 @@ let Player = function (x, y, velocidade) {
     this.sprite = 'images/char-cat-girl.png';
     this.life = 5;
     this.canWalk = true;
-}
-
-Player.prototype.update = function (dt) {
-    
 }
 
 Player.prototype.render = function() {
