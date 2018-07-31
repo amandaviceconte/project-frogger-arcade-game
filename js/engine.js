@@ -151,6 +151,27 @@ var Engine = (function(global) {
         renderEntities();
     }
 
+    // Função que checa colisão do player com um inimigo
+    const checkCollisions = () => {
+        for (let i = 0; i < allEnemies.length; i++) {
+            if ((player.y === 185 || player.y === 225) && (eY[i] >= 185 && eY[i] <= 228)) 
+                if (eX[i] >= (player.x - 50) && eX[i] <= (player.x + 50)) {
+                    player.life--;
+                    restartPhase();
+                }
+            if ((player.y === 105 || player.y === 145) && (eY[i] >= 105 && eY[i] <= 145)) 
+                if (eX[i] >= (player.x - 50) && eX[i] <= (player.x + 50)) {
+                    player.life--;
+                    restartPhase();
+                }
+            if ((player.y === 25 || player.y === 65) && (eY[i] >= 25 && eY[i] <= 65)) 
+                if (eX[i] >= (player.x - 50) && eX[i] <= (player.x + 50)) {
+                    player.life--;
+                    restartPhase();
+                }
+        }
+    }
+    
     // Gerando as barras de status
     const statusBars = (nLifes) => {
         // Barra do score

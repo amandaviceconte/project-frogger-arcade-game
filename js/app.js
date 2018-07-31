@@ -1,24 +1,3 @@
-// Função que checa colisão do player com um inimigo
-const checkCollisions = () => {
-    for (let i = 0; i < allEnemies.length; i++) {
-        if ((player.y === 185 || player.y === 225) && (eY[i] >= 185 && eY[i] <= 228)) 
-            if (eX[i] >= (player.x - 50) && eX[i] <= (player.x + 50)) {
-                player.life--;
-                restartPhase();
-            }
-        if ((player.y === 105 || player.y === 145) && (eY[i] >= 105 && eY[i] <= 145)) 
-            if (eX[i] >= (player.x - 50) && eX[i] <= (player.x + 50)) {
-                player.life--;
-                restartPhase();
-            }
-        if ((player.y === 25 || player.y === 65) && (eY[i] >= 25 && eY[i] <= 65)) 
-            if (eX[i] >= (player.x - 50) && eX[i] <= (player.x + 50)) {
-                player.life--;
-                restartPhase();
-            }
-    }
-}
-
 // Variável do score do jogo
 let score = 0;
 
@@ -93,15 +72,15 @@ Player.prototype.render = function() {
 
 Player.prototype.handleInput = function (movimento) {
     // Movimentos com tratamento de colisão com o limite do mapa
-    if (player.canWalk) {
+    if (this.canWalk) {
         if (movimento === 'left' && this.x > 10) {
             this.x -= this.velocidade;
         } else if (movimento === 'up') {
-            this.y -= player.velocidade;
+            this.y -= this.velocidade;
         } else if (movimento === 'right' && this.x < 403) {
-            this.x += player.velocidade;
+            this.x += this.velocidade;
         } else if (movimento === 'down' && this.y < 385) {
-            this.y += player.velocidade;
+            this.y += this.velocidade;
         }
     }
 }
